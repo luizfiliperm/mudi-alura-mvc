@@ -6,20 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <div>Product Name</div>
-        <div>Price: <span>99.99</span></div>
-        <div>Delivery date: <span>25/04/2004</span></div>
+    <div th:each="order : ${orders}">
+        <div th:text="${order.productName}">Product Name</div>
+        <div>Price: <span th:text="${order.negotiatedValue}">99.99</span></div>
+        <div>Delivery date: <span th:text="${order.deliveryDate}">25/04/2004</span></div>
         <div>Product</div>
-        <div>product url</div>
-
+        <div> <input th:value="${order.productUrl}" value="product url"></div>
         <div>Description</div>
         <div>
-            <textarea>Order description</textarea>
+            <textarea th:text="${order.description}">Order description</textarea>
         </div>
 
         <div>
-            <img src="" alt="">
+            <img th:src="${order.imgUrl}" src="" alt="">
         </div>
     </div>
 </body>
