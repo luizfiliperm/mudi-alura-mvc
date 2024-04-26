@@ -2,7 +2,9 @@ package com.asaas.mudi.controllers;
 
 import com.asaas.mudi.dto.OrderDtoReceive;
 import com.asaas.mudi.services.OrderService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +20,17 @@ public class OrderController {
     }
 
     @GetMapping("/form")
-    public String form(){
+    public String form(OrderDtoReceive orderDtoReceive){
         return "order/form";
     }
 
     @PostMapping("/new")
-    public String newOrder(OrderDtoReceive orderDtoReceive){
+    public String newOrder(@Valid OrderDtoReceive orderDtoReceive, BindingResult result){
+
+        if(result.hasErrors()){
+            return "order/form";
+        }
+
         orderService.save(orderDtoReceive.toOrder());
         return "redirect:/";
     }

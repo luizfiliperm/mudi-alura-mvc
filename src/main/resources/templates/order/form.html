@@ -12,24 +12,26 @@
             <h1>New Order</h1>
         </div>
         <div class="card mt-3">
-            <form action="/order/new" method="POST" class="card-body">
+            <form th:object="${orderDtoReceive}" action="/order/new" method="POST" class="card-body">
                 <div>
                     <label for="productName" class="form-label" >Product</label>
-                    <input name="productName" class="form-control" type="text" placeholder="Name of the product">
+                    <input th:field="*{productName}" class="form-control" type="text" placeholder="Name of the product">
                 </div>
                 <div>
                     <label for="productUrl" class="form-label">Product Url</label>
-                    <input name="productUrl" class="form-control" type="text" placeholder="Url of the product">
+                    <input th:field="*{productUrl}" name="productUrl" class="form-control" type="text" placeholder="Url of the product">
                 </div>
                 <div>
                     <label for="imgurl" class="form-label">Image Url</label>
-                    <input name="imgUrl" class="form-control" type="text" placeholder="Url of the product image">
+                    <input th:field="*{imgUrl}" class="form-control" type="text" placeholder="Url of the product image">
                 </div>
                 <div>
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="description" class="form-control" type="textarea" placeholder="Description of the product"></textarea>
+                    <label>
+                        <textarea th:field="*{description}" class="form-control" placeholder="Description of the product"></textarea>
+                    </label>
                 </div>
-                <button type="sumbmit" class="btn btn-primary mt-3">Register</button>
+                <button type="submit" class="btn btn-primary mt-3">Register</button>
             </form>
         </div>
     </div>

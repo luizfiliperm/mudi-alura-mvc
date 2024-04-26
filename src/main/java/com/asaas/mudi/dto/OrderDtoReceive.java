@@ -1,6 +1,7 @@
 package com.asaas.mudi.dto;
 
 import com.asaas.mudi.model.Order;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,9 +11,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderDtoReceive {
 
+    @NotBlank
     private String productName;
+
+    @NotBlank
     private String productUrl;
+
+    @NotBlank
     private String imgUrl;
+    
     private String description;
 
     public Order toOrder(){
