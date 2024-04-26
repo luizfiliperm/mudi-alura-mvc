@@ -8,15 +8,19 @@
 
         <nav class="navbar navbar-expand d-flex justify-content-between mb-3">
             <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="#">All</a>
-                  <a class="nav-link" href="#">Pendent</a>
-                  <a class="nav-link" href="#">Aproved</a>
-                  <a class="nav-link" href="#">Delivered</a>
+                  <a th:classappend="${status} == 'all' ? 'active'" class="nav-link" aria-current="page" href="/?status=all">All</a>
+                  <a th:classappend="${status} == 'PENDENT' ? 'active'" class="nav-link" href="/?status=PENDENT">Pendent</a>
+                  <a th:classappend="${status} == 'APPROVED' ? 'active'" class="nav-link" href="/?status=APPROVED">Approved</a>
+                  <a th:classappend="${status} == 'DELIVERED' ? 'active'" class="nav-link" href="/?status=DELIVERED">Delivered</a>
             </div>
             <a href="/order/form"><button class="btn btn-outline-secondary" type="submit">New</button></a>
         </nav>
         <div class="card mb-3" th:each="order : ${orders}">
-            <div class="card-header" th:text="${order.productName}">Product Name</div>
+            <th:block th:switch="${order.status.name()}">
+                <div th:case="'PENDENT'" class="card-header alert alert-warning" th:text="${order.productName}">Product Name</div>
+                <div th:case="'APPROVED'" class="card-header alert alert-success" th:text="${order.productName}">Product Name</div>
+                <div th:case="'DELIVERED'" class="card-header alert alert-dark" th:text="${order.productName}">Product Name</div>
+            </th:block>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 mb-3 col-sm-8">

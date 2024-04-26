@@ -1,5 +1,6 @@
 package com.asaas.mudi.model;
 
+import com.asaas.mudi.model.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,4 +36,8 @@ public class Order {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "status", columnDefinition = "varchar(50) default 'PENDENT'")
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 }

@@ -1,6 +1,7 @@
 package com.asaas.mudi.services.impl;
 
 import com.asaas.mudi.model.Order;
+import com.asaas.mudi.model.enums.OrderStatus;
 import com.asaas.mudi.repositories.OrderRepository;
 import com.asaas.mudi.services.OrderService;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findAll() {
-        return orderRepository.findAll();
+    public List<Order> findAllByStatus(String status) {
+        if(status.equals("all")){
+            return orderRepository.findAll();
+        }
+        return orderRepository.findAllByStatus(OrderStatus.valueOf(status));
     }
 
     @Override
