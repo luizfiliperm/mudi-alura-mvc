@@ -19,7 +19,7 @@
                   <a class="nav-link" href="#">Aproved</a>
                   <a class="nav-link" href="#">Delivered</a>
             </div>
-            <a href="#"><button class="btn btn-outline-secondary" type="submit">New</button></a>
+            <a href="/order/form"><button class="btn btn-outline-secondary" type="submit">New</button></a>
         </nav>
         <div class="card" th:each="order : ${orders}">
             <div class="card-header" th:text="${order.productName}">Product Name</div>
