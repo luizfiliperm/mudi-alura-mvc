@@ -5,6 +5,7 @@ import com.asaas.mudi.services.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -18,10 +19,11 @@ public class IndexController {
     }
 
     @GetMapping
-    public String index(Model model){
-
+    public ModelAndView index(){
         List<Order> orders = orderService.findAll();
-        model.addAttribute("orders", orders);
-        return "index";
+        ModelAndView mv = new ModelAndView("index");
+        mv.addObject("orders", orders);
+        
+        return mv;
     }
 }
