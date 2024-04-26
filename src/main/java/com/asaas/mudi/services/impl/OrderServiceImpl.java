@@ -20,4 +20,9 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> findAll() {
         return orderRepository.findAll();
     }
+
+    @Override
+    public Order save(Order order) {
+        return orderRepository.save(order);
+    }
 }
