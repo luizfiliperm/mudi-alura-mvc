@@ -11,27 +11,27 @@
         <div class="mt-4 p-5 bg-secondary text-white rounded mb-0">
             <h1>New Order</h1>
         </div>
-
-        <form action="/order/new" method="POST">
-            <div>
-                <label for="productName">Product</label>
-                <input name="productName" type="text" placeholder="name of the product">
-            </div>
-            <div>
-                <label for="productUrl">Product Url</label>
-                <input name="productUrl" type="text" placeholder="url of the product">
-            </div>
-            <div>
-                <label for="imgurl">Image Url</label>
-                <input name="imgUrl" type="text" placeholder="url of the product image">
-            </div>
-            <div>
-                <label for="description">Description</label>
-                <input name="description" type="textarea" placeholder="url of the image of Product">
-            </div>
-            <button type="sumbmit">Register</button>
-        </form>
-
+        <div class="card mt-3">
+            <form action="/order/new" method="POST" class="card-body">
+                <div>
+                    <label for="productName" class="form-label" >Product</label>
+                    <input name="productName" class="form-control" type="text" placeholder="Name of the product">
+                </div>
+                <div>
+                    <label for="productUrl" class="form-label">Product Url</label>
+                    <input name="productUrl" class="form-control" type="text" placeholder="Url of the product">
+                </div>
+                <div>
+                    <label for="imgurl" class="form-label">Image Url</label>
+                    <input name="imgUrl" class="form-control" type="text" placeholder="Url of the product image">
+                </div>
+                <div>
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" class="form-control" type="textarea" placeholder="Description of the product"></textarea>
+                </div>
+                <button type="sumbmit" class="btn btn-primary mt-3">Register</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
