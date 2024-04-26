@@ -15,21 +15,22 @@
             <form th:object="${orderDtoReceive}" action="/order/new" method="POST" class="card-body">
                 <div>
                     <label for="productName" class="form-label" >Product</label>
-                    <input th:field="*{productName}" class="form-control" type="text" placeholder="Name of the product">
+                    <input th:field="*{productName}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Name of the product">
+                    <div th:errors="*{productName}" class="invalid-feedback" ></div>
                 </div>
                 <div>
                     <label for="productUrl" class="form-label">Product Url</label>
-                    <input th:field="*{productUrl}" name="productUrl" class="form-control" type="text" placeholder="Url of the product">
+                    <input th:field="*{productUrl}" name="productUrl" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Url of the product">
+                    <div th:errors="*{productUrl}" class="invalid-feedback" ></div>
                 </div>
                 <div>
                     <label for="imgurl" class="form-label">Image Url</label>
-                    <input th:field="*{imgUrl}" class="form-control" type="text" placeholder="Url of the product image">
+                    <input th:field="*{imgUrl}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Url of the product image">
+                    <div th:errors="*{imgUrl}" class="invalid-feedback"></div>
                 </div>
                 <div>
                     <label for="description" class="form-label">Description</label>
-                    <label>
-                        <textarea th:field="*{description}" class="form-control" placeholder="Description of the product"></textarea>
-                    </label>
+                    <textarea th:field="*{description}" class="form-control" placeholder="Description of the product"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Register</button>
             </form>

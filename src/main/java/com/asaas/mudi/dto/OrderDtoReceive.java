@@ -11,15 +11,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderDtoReceive {
 
-    @NotBlank
+    @NotBlank(message = "The product name cannot be empty")
     private String productName;
 
-    @NotBlank
+    @NotBlank(message = "The product URL cannot be empty")
     private String productUrl;
 
-    @NotBlank
+    @NotBlank(message = "The image URL cannot be empty")
     private String imgUrl;
-    
+
     private String description;
 
     public Order toOrder(){
