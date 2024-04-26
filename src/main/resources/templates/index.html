@@ -8,6 +8,19 @@
 </head>
 <body>
     <div class="container">
+        <div class="mt-4 p-5 bg-secondary text-white rounded mb-0">
+            <h1>My Orders</h1>
+        </div>
+
+        <nav class="navbar navbar-expand d-flex justify-content-between mb-3">
+            <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="#">All</a>
+                  <a class="nav-link" href="#">Pendent</a>
+                  <a class="nav-link" href="#">Aproved</a>
+                  <a class="nav-link" href="#">Delivered</a>
+            </div>
+            <a href="#"><button class="btn btn-outline-secondary" type="submit">New</button></a>
+        </nav>
         <div class="card" th:each="order : ${orders}">
             <div class="card-header" th:text="${order.productName}">Product Name</div>
                 <div class="card-body">
