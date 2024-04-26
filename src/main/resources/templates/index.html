@@ -25,8 +25,8 @@
                     <div class="row">
                         <div class="col-12 mb-3 col-sm-8">
                             <div class="row">
-                                <div class="col-md 5">Price: <span th:text="${order.negotiatedValue}">99.99</span></div>
-                                <div class="col-md 7">Delivery date: <span th:text="${order.deliveryDate}">25/04/2004</span></div>
+                                <div class="col-md 5">Price: <span th:if="${order.negotiatedValue != null}" th:text="${'R$ ' + #numbers.formatDecimal(order.negotiatedValue,3,'POINT',2,'COMMA')}">99.99</span></div>
+                                <div class="col-md 7">Delivery date: <span th:text="${#temporals.format(order.deliveryDate, 'dd/MM/yyyy')}">25/04/2004</span></div>
                             </div>
                             <div>Product</div>
                             <div> <input class="form-control" th:value="${order.productUrl}" value="product url"></div>
