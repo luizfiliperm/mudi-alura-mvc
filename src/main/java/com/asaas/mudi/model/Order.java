@@ -37,7 +37,7 @@ public class Order {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "status", columnDefinition = "varchar(50) default 'PENDENT'")
+    @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 }

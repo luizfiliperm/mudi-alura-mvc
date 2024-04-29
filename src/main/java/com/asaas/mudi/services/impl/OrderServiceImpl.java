@@ -27,6 +27,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order save(Order order) {
+        order.setStatus(OrderStatus.PENDENT);
         return orderRepository.save(order);
     }
 }
